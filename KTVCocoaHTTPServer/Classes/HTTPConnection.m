@@ -1474,6 +1474,15 @@ static NSMutableArray *recentNonces;
 	
 	if(writeQueueSize >= READ_CHUNKSIZE) return;
 	
+    if (ranges.count <= 0) {
+        return;
+    }
+    
+    if (rangeIndex == nil) {
+        return;
+    }
+    
+    
 	DDRange range = [[ranges objectAtIndex:rangeIndex] ddrangeValue];
 	
 	UInt64 offset = [httpResponse offset];
